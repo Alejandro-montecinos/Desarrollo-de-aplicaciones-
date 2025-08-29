@@ -143,7 +143,7 @@ fun main (){
 
      */
 
-
+/*
     fun CicloWile(){
         var i=1;
         do {
@@ -153,7 +153,96 @@ fun main (){
     }
     CicloWile()
 
+ */
+
+
+    //manejo de listas como List, SEt, Maps
+/*
+    var lista = mutableListOf(1,2,5,8,10,33,67,100) // las terminaciones en OF no son mutables
+    lista.add(5)
+    lista.add(5)
+    lista.add(5)
+    lista.add(5)
+
+    println("lista $lista")
+
+    var filtrado = lista.filter { it % 2==0}
+    println("filtrado $filtrado")
+
+    var map = lista.map { it+1 }
+    println("map $map")
+
+    var suma = lista.sum()
+    println("suma $suma")
+
+    var buscarElPar = lista.find { it % 2==0}
+    println("buscarElPar $buscarElPar")
+
+    var busraElPrimerElemento = lista.first()
+    println("busraElPrimerElemento $busraElPrimerElemento")
+
+    var buscaElUltimoElemento = lista.last()
+    println("buscaElUltimoElemento $buscaElUltimoElemento")
+
+ */
+
+
+
+
+/*
+    var conjunto =setOf(1,2,3)
+    println("conjunto $conjunto")
+
+ */
+
+/*
+    var informacion = mapOf("nombre" to "juan",
+        "edad" to 9,
+        "dolares" to 1000)
+    informacion.forEach {
+        (llave,valor ) -> println("la llave es $llave y el valor es $valor")
+    }
+
+ */
+
+    val  Charmander = Pokemon("Charmander",20,80)
+    val mewto = Pokemon("Mewto", 100, 450)
+
+    Charmander.informacion()
+    mewto.informacion()
+
+
+    Charmander.sePreparaParaLaBatalla()
+    mewto.recibeDanio(Charmander.atak)
+
+    mewto.sePreparaParaLaBatalla()
+    Charmander.recibeDanio(mewto.atak)
+
+
 
 
 }
 
+class Pokemon(
+    //propiedades
+    val nombre : String,
+    var atak : Int,
+    var hp : Int,
+){
+    //funciones
+    fun sePreparaParaLaBatalla(){
+        println("el $nombre se prepara para la batalla")
+    }
+    fun informacion(){
+        println("nombre:$nombre ATK: $atak hp: $hp")
+    }
+    fun recibeDanio(danio: Int){
+        println("$nombre recibe $danio puntos de danio ")
+        hp = hp -danio
+        println("$nombre ahora tiene $hp de vida ")
+        if (hp<0){
+            println("$nombre se a debilitado !!!!!!")
+        }
+
+    }
+}
